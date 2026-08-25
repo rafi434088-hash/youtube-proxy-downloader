@@ -1,6 +1,6 @@
-# YouTube Proxy — one-time updater setup. Registers the native messaging host so the
+# YouTube Proxy - one-time updater setup. Registers the native messaging host so the
 # extension's "update now" button can run update.bat. Safe to run again any time (e.g.
-# if you move the extension folder — just re-run it from the new location).
+# if you move the extension folder - just re-run it from the new location).
 $ErrorActionPreference = "Stop"
 
 # Must match the id Chrome derives from the "key" in manifest.json. If you regenerate
@@ -46,7 +46,7 @@ foreach ($key in $roots) {
     Set-ItemProperty -Path $key -Name "(default)" -Value $manifestPath
   }
   catch {
-    # A browser that isn't installed just means its registry root is missing — ignore.
+    # A browser that isn't installed just means its registry root is missing - ignore.
   }
 }
 
@@ -57,4 +57,4 @@ Write-Host "  host manifest    : $manifestPath"
 Write-Host "  extension id     : $extId"
 Write-Host ""
 Write-Host "If you loaded the extension and its id is NOT the one above, the button"
-Write-Host "won't work — tell the developer, the manifest key and this id must match."
+Write-Host "won't work - tell the developer, the manifest key and this id must match."

@@ -1,4 +1,4 @@
-# YouTube Proxy — native messaging host. Chrome launches this (via nm-host.bat) when
+# YouTube Proxy - native messaging host. Chrome launches this (via nm-host.bat) when
 # the extension's "update now" button fires chrome.runtime.sendNativeMessage. It speaks
 # the native messaging wire protocol (4-byte little-endian length prefix + JSON), runs
 # update.bat to completion, and reports the result back so the extension can reload only
@@ -10,7 +10,7 @@ try {
   $stdout = [Console]::OpenStandardOutput()
 
   # Read the 4-byte length prefix, then the JSON message. We don't need the message
-  # contents — any message means "update" — but we must drain it per the protocol.
+  # contents - any message means "update" - but we must drain it per the protocol.
   $lenBuf = New-Object byte[] 4
   $got = $stdin.Read($lenBuf, 0, 4)
   if ($got -ge 4) {
@@ -47,5 +47,5 @@ try {
   $stdout.Flush()
 }
 catch {
-  # Best effort — if we can't even respond, Chrome surfaces a disconnect to the caller.
+  # Best effort - if we can't even respond, Chrome surfaces a disconnect to the caller.
 }
